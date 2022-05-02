@@ -77,7 +77,7 @@ var ZoomIt = () => {
 var gui_overlay = document.createElement('div');
 gui_overlay.style.cursor   = "zoom-in";
 gui_overlay.style.position = "absolute";
-gui_overlay.style.zIndex   = "9999";
+gui_overlay.style.zIndex   = "var(--z-index-above)";
 gui_overlay.style.border   = "2px dashed white";
 gui_overlay.style.opacity  = "40%";
 gui_overlay.style.display  = "none";
