@@ -100,16 +100,16 @@ gui_button_div.appendChild(gui_button);
 
 // Hacked Updates
 setInterval(() => {
-    if (!twitch_vid || !twitch_vid.getAttribute("data-zoomer-attached")) {
+    if ((twitch_vid && twitch_vid.getAttribute("data-zoomer-attached")) == null) {
         twitch_vid = document.getElementsByTagName('video')[0];
         twitch_vid.setAttribute("data-zoomer-attached", true);
     }
-    if (!twitch_video_ref || !twitch_video_ref.getAttribute("data-zoomer-attached")) {
+    if ((twitch_video_ref && twitch_video_ref.getAttribute("data-zoomer-attached")) == null) {
         twitch_video_ref = document.querySelectorAll(".video-ref")[0];
         twitch_video_ref.setAttribute("data-zoomer-attached", true);
         twitch_video_ref.append(gui_overlay);
     }
-    if (!twitch_ctrl_bar || !twitch_ctrl_bar.getAttribute("data-zoomer-attached")) {
+    if ((twitch_ctrl_bar && twitch_ctrl_bar.getAttribute("data-zoomer-attached")) == null) {
         twitch_ctrl_bar = document.querySelectorAll(".player-controls__right-control-group")[0];
         twitch_ctrl_bar.setAttribute("data-zoomer-attached", true);
         twitch_ctrl_bar.prepend(gui_button_div);
