@@ -211,18 +211,19 @@ gui_overlay.addEventListener("wheel", (e) => {
 gui_overlay.addEventListener("contextmenu", e => e.preventDefault());
 
 var keyHandler = (e) => {
+    if (document.activeElement.getAttribute("role") == "textbox" ||
+        document.activeElement.getAttribute("type") == "text" ||
+        document.activeElement.getAttribute("type") == "search") return;
 
-    if (e.shiftKey && (e.key == "Z" || e.key == "z") ) {
-        ToggleZoomer();
-    }
-    
     if (e.code == "Escape" && zoomer_index > 0) {
         ResetZoomer();
     }
 
-    if (!zoomer_on) {
-        return;
+    if (e.shiftKey && (e.key == "Z" || e.key == "z")) {
+        ToggleZoomer();
     }
+
+    if (!zoomer_on) return;
     
     if (e.code == "ArrowUp") {
         zoomer_y -= 5;
